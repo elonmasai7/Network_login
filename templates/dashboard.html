@@ -1,0 +1,28 @@
+<!-- templates/dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+</head>
+<body>
+    <h1>Welcome, {{ user.username }}</h1>
+    <h2>Personal Details</h2>
+    <form action="/dashboard" method="post">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" value="{{ user.email }}">
+        <br>
+        <label for="phone_number">Phone Number:</label>
+        <input type="text" id="phone_number" name="phone_number" value="{{ user.phone_number }}">
+        <br>
+        <button type="submit">Update Details</button>
+    </form>
+    <h2>Data Usage</h2>
+    <p>Total Data Used: {{ user.data_used }} MB</p>
+    <p>Remaining Data: {{ remaining_data }} MB</p>
+    <h2>Buy More Data</h2>
+    <p>To buy more data, please pay via M-Pesa.</p>
+    <p>Dial *123# and follow the instructions to make a payment.</p>
+    <form action="/pay" method="post">
+        <button type="submit
